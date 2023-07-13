@@ -40,12 +40,12 @@ class User {
   //Статический метод авторизации пользователя
   static function authUser($email, $pass) {
     global $mysqli;
-    //return "User auth";
+   
     $email = mb_strtolower($_POST["email"]);
     $pass = trim($_POST["pass"]);
     //$pass = password_hash($pass, PASSWORD_DEFAULT);
     $result = $mysqli->query("SELECT * FROM `user` WHERE `email`='$email'");
-//var_dump($result);
+
 $result = $result->fetch_assoc();
 $pass_hash = $result["pass"];
 
@@ -62,11 +62,3 @@ if (password_verify($pass, $pass_hash)) {
     }
   }
 }
-// if ($result->num_rows != 0) {
-     
-//       return json_encode(["result"=>"exist"]);
-//     } else {
-//       return json_encode(["result"=>"success"]);
-//     }
-
-//   }
