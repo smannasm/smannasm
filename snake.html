@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
     <title>Snake</title>
     <style>
-        /* Змея ползет */
     .snake{
         width :1rem;
         height: 1rem;
@@ -46,12 +44,6 @@
         border-radius: 20%;
         position: absolute;
     }
-    /* .Eda{
-        width :1rem;
-        height: 1rem;
-        background-color: black;
-        position: absolute;
-    } */
 .Eda{
   font-variation-settings:
   'FILL' 1,
@@ -85,7 +77,7 @@
         // рандомное появление Еды
         
         let topEda = getRandom(0, window.innerHeight-40)
-		let leftEda = getRandom(0, window.innerWidth - 40);
+	let leftEda = getRandom(0, window.innerWidth - 40);
         let Eda = document.getElementsByClassName("Eda")[0]
         Eda.style.top = topEda+"px";
         Eda.style.left = leftEda+"px";
@@ -121,9 +113,9 @@
         hvost4.style.left=koordLeft[4]+"px";
 
         snake.ondragstart = function () {
-					return false;
-				};
-                let key = "ArrowUp";
+	return false;
+		};
+	 let key = "ArrowUp";
 
         document.addEventListener("keydown", function(event){
             key = event.key;
@@ -141,9 +133,7 @@
                 if (snake.offsetTop+15>window.innerHeight){dead();}
                 if (snake.offsetTop<0){dead();}
                 if (snake.offsetLeft+8>window.innerWidth){dead();}
-                if (snake.offsetLeft<0){confirm("Game Over! Начать новую игру?")
-                if (confirm == "true") {dead();}
-                 }
+                if (snake.offsetLeft<0){dead();}
                 if (hvost1.hidden == false){
                 if (koordTop[1]<koordTop[3] && koordLeft[1]==koordLeft[3] && koordTop[1]<koordTop[0] ){dead();}
                 if (koordTop[1]>koordTop[3] && koordLeft[1]==koordLeft[3] && koordTop[1]>koordTop[0] ){dead();}
@@ -160,14 +150,12 @@
                     // Появление новой еды
                     let topEda = getRandom(0, window.innerHeight-40)
                     let leftEda = getRandom(0, window.innerWidth - 40);
-                let Eda = document.getElementsByClassName("Eda")[0]
-                Eda.style.top = topEda+"px";
-                Eda.style.left = leftEda+"px";
-                // console.log("hvost"+[1]);
-                //     ("hvost"+[1]).hidden= false;
+               	    let Eda = document.getElementsByClassName("Eda")[0]
+                	Eda.style.top = topEda+"px";
+                	Eda.style.left = leftEda+"px";
                 // Увеличение Хвоста
                 if (hvost1.hidden==true) {
-                    hvost1.hidden=false} else if (hvost2.hidden==true){
+                hvost1.hidden=false} else if (hvost2.hidden==true){
                 hvost2.hidden=false} else if (hvost3.hidden==true){
                 hvost3.hidden=false} else if (hvost4.hidden==true){
                 hvost4.hidden=false}
@@ -183,19 +171,18 @@
                 pereopredelenieHvost();
                 
             } else if (key  == "ArrowRight") {
-                Arrow = "+"
-                
+        	 Arrow = "+"
             y=(snake.offsetLeft+(Number((Arrow)+30)))
             snake.style.left= y+"px";
             pereopredelenieHvost();
 
             } else if (key  == "ArrowUp") {
-                Arrow = "-"
+            Arrow = "-"
             snake.style.top= snake.offsetTop+(Number((Arrow)+30))+"px";
             pereopredelenieHvost();
 
             } else if (key  == "ArrowDown") {
-                Arrow = "+"
+            Arrow = "+"
             x=(snake.offsetTop+(Number((Arrow)+30)))
             snake.style.top= x+"px";
             pereopredelenieHvost();
@@ -235,15 +222,6 @@
         console.log(hvost4.offsetTop);
         hvost4.style.left=koordLeft[4]+"px";
         }
-        
-
-        // function sleep(ms)
-        // {
-        // return new Promise(resolve => setTimeout(resolve, ms));
-        // } 
-        // async function F()
-        // {await sleep(2000); //Ждем 2 секунды
-        // }
         function dead (){
             d =confirm("Game Over! Начать новую игру?")
                 if (d== true) {
@@ -253,16 +231,9 @@
                 }
         }
 
-
         function getRandom(min, max) {
-				return Math.round(Math.random() * (max - min) + min);
+	return Math.round(Math.random() * (max - min) + min);
 			}   
-				
-//             let timer = setInterval(function() {
-//   if (animation complete) clearInterval(timer);
-//   else {Eda.filter.contrast =150%}
-// }, 20); 
-
     </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
